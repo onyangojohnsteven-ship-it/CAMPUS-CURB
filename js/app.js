@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Data Store & State
     let cart = [];
     const products = [
-        { id: 1, title: 'MacBook Pro M1 (13-inch)', price: 3500000, category: 'Laptops', condition: 'Mint', seller: 'J.A.', building: 'Chem Bldg', img: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=600&q=80' },
-        { id: 2, title: 'Arduino Engineering Kit v2', price: 180000, category: 'Engineering', condition: 'New', seller: 'M.S.', building: 'Eng Lab', img: 'https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=600&q=80' },
-        { id: 3, title: 'Sony WH-1000XM4 Headphones', price: 950000, category: 'Accessories', condition: 'Refurbished', seller: 'R.K.', building: 'Library', img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80' },
-        { id: 4, title: 'iPad Air 4 (256GB, Wi-Fi)', price: 1500000, category: 'Phones', condition: 'Mint', seller: 'S.L.', building: 'Student Ctr', img: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80' },
-        { id: 5, title: 'TP-Link Archer AX50 Router', price: 250000, category: 'Networking', condition: 'New', seller: 'G.H.', building: 'Tech Hub', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80' },
-        { id: 6, title: 'Raspberry Pi 4 Model B', price: 320000, category: 'Engineering', condition: 'New', seller: 'K.P.', building: 'CS Dept', img: 'https://images.unsplash.com/photo-1629654291663-b91ad427698f?auto=format&fit=crop&w=600&q=80' },
-        { id: 7, title: 'Logitech MX Master 3S', price: 420000, category: 'Accessories', condition: 'Mint', seller: 'H.V.', building: 'Library', img: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80' },
-        { id: 8, title: 'Samsung T7 Shield 1TB SSD', price: 480000, category: 'Networking', condition: 'New', seller: 'F.B.', building: 'Dorm B', img: 'https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80' },
-        { id: 9, title: 'Dell UltraSharp 27" 4K Monitor', price: 1100000, category: 'Engineering', condition: 'Mint', seller: 'L.M.', building: 'Arch Studio', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80' },
-        { id: 10, title: 'Mechanical Keyboard (Blue)', price: 150000, category: 'Accessories', condition: 'New', seller: 'Z.Q.', building: 'Union', img: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=600&q=80' }
+        { id: 1, title: 'MacBook Pro M1 (13-inch)', price: 3500000, category: 'Laptops', condition: 'Mint', seller: 'J.A.', building: 'Chem Bldg', img: './images/macbook-pro-m1.jpg' },
+        { id: 2, title: 'Arduino Engineering Kit v2', price: 180000, category: 'Engineering', condition: 'New', seller: 'M.S.', building: 'Eng Lab', img: './images/arduino-kit.jpg' },
+        { id: 3, title: 'Sony WH-1000XM4 Headphones', price: 950000, category: 'Accessories', condition: 'Refurbished', seller: 'R.K.', building: 'Library', img: './images/sony-headphones.jpg' },
+        { id: 4, title: 'iPad Air 4 (256GB, Wi-Fi)', price: 1500000, category: 'Phones', condition: 'Mint', seller: 'S.L.', building: 'Student Ctr', img: './images/ipad-air.jpg' },
+        { id: 5, title: 'TP-Link Archer AX50 Router', price: 250000, category: 'Networking', condition: 'New', seller: 'G.H.', building: 'Tech Hub', img: './images/tplink-router.jpg' },
+        { id: 6, title: 'Raspberry Pi 4 Model B', price: 320000, category: 'Engineering', condition: 'New', seller: 'K.P.', building: 'CS Dept', img: './images/raspberry-pi.jpg' },
+        { id: 7, title: 'Logitech MX Master 3S', price: 420000, category: 'Accessories', condition: 'Mint', seller: 'H.V.', building: 'Library', img: './images/logitech-mouse.jpg' },
+        { id: 8, title: 'Samsung T7 Shield 1TB SSD', price: 480000, category: 'Networking', condition: 'New', seller: 'F.B.', building: 'Dorm B', img: './images/samsung-ssd.jpg' },
+        { id: 9, title: 'Dell UltraSharp 27" 4K Monitor', price: 1100000, category: 'Engineering', condition: 'Mint', seller: 'L.M.', building: 'Arch Studio', img: './images/dell-monitor.jpg' },
+        { id: 10, title: 'Mechanical Keyboard (Blue)', price: 150000, category: 'Accessories', condition: 'New', seller: 'Z.Q.', building: 'Union', img: './images/mechanical-keyboard.jpg' }
     ];
 
     // 3. Selectors
