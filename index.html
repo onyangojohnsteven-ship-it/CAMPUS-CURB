@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Campus Curb - The trusted campus-exclusive IT marketplace for students to buy and sell gear safely.">
-    <meta name="theme-color" content="#1a1a2e">
+    <meta name="theme-color" content="#2563eb">
     
-    <title>Campus Curb | Premium University IT Marketplace</title>
+    <title>Campus Curb | University IT Marketplace</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -14,23 +14,19 @@
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body data-theme="dark">
-
-    <!-- Premium Background Effects -->
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+<body data-theme="light">
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <button class="menu-toggle" aria-label="Toggle Navigation">
-                    <i class="fas fa-bars-staggered"></i>
+                    <i class="fas fa-bars"></i>
                 </button>
 
                 <a href="#" class="logo nav-link" data-view="marketplace">
@@ -47,7 +43,7 @@
                         <span class="cart-badge" id="cartBadge">0</span>
                     </button>
                     <button class="nav-btn nav-link" data-view="profile" aria-label="User Account">
-                        <i class="fas fa-user-astronaut"></i>
+                        <i class="fas fa-user-circle"></i>
                     </button>
                 </div>
             </div>
@@ -58,10 +54,10 @@
     <nav class="nav-overlay" id="mobileNav">
         <button class="nav-close"><i class="fas fa-times"></i></button>
         <div class="nav-links">
-            <a href="#" class="nav-link active" data-view="marketplace">Explore Marketplace</a>
-            <a href="#" class="nav-link" data-view="sell">List Your Gear</a>
-            <a href="#" class="nav-link" data-view="how-it-works">Safe Zone Trading</a>
-            <a href="#" class="nav-link" data-view="profile">My Dashboard</a>
+            <a href="#" class="nav-link active" data-view="marketplace">Marketplace</a>
+            <a href="#" class="nav-link" data-view="sell">Sell Item</a>
+            <a href="#" class="nav-link" data-view="how-it-works">Safety Protocol</a>
+            <a href="#" class="nav-link" data-view="profile">Profile</a>
         </div>
     </nav>
 
@@ -71,11 +67,11 @@
             <div class="hero">
                 <div class="container">
                     <div class="hero-content">
-                        <span class="hero-badge">🚀 The Future of Campus Trading</span>
-                        <h1>Level Up Your Tech <span>On Your Campus</span></h1>
-                        <p>The premium, student-only marketplace for high-performance gear. Verified trades, safe zones, no scams.</p>
+                        <span class="hero-badge">Verified Campus Marketplace</span>
+                        <h1>Upgrade Your Tech <span>Locally</span></h1>
+                        <p>The secure marketplace for university students to trade IT equipment, hardware, and academic materials safely on campus.</p>
                         <div class="hero-cta">
-                            <button class="btn btn-primary nav-link" data-view="marketplace">Browse Gear</button>
+                            <button class="btn btn-primary nav-link" data-view="marketplace">Explore Listings</button>
                             <button class="btn btn-glass nav-link" data-view="sell">Start Selling</button>
                         </div>
                     </div>
@@ -87,10 +83,10 @@
                     <div class="search-wrapper">
                         <div class="search-bar">
                             <i class="fas fa-search"></i>
-                            <input type="text" id="searchInput" placeholder="Search premium gear... (e.g., RTX 4070)">
+                            <input type="text" id="searchInput" placeholder="Search for laptops, kits, or accessories...">
                         </div>
                         <button class="filter-btn">
-                            <i class="fas fa-sliders-h"></i> <span>Filter</span>
+                            <i class="fas fa-filter"></i> <span>Filter</span>
                         </button>
                     </div>
                 </div>
@@ -99,14 +95,10 @@
             <!-- Categories Section -->
             <section class="categories">
                 <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Trending Categories</h2>
-                        <div class="section-line"></div>
-                    </div>
                     <div class="category-grid">
                         <div class="category-card active" data-category="all">
-                            <div class="category-icon-wrapper"><span class="category-icon">✨</span></div>
-                            <div class="category-name">Everything</div>
+                            <div class="category-icon-wrapper"><span class="category-icon">📦</span></div>
+                            <div class="category-name">All Items</div>
                         </div>
                         <div class="category-card" data-category="Laptops">
                             <div class="category-icon-wrapper"><span class="category-icon">💻</span></div>
@@ -114,15 +106,15 @@
                         </div>
                         <div class="category-card" data-category="Phones">
                             <div class="category-icon-wrapper"><span class="category-icon">📱</span></div>
-                            <div class="category-name">Mobiles</div>
+                            <div class="category-name">Phones</div>
                         </div>
                         <div class="category-card" data-category="Networking">
-                            <div class="category-icon-wrapper"><span class="category-icon">🌐</span></div>
-                            <div class="category-name">Infrastructure</div>
+                            <div class="category-icon-wrapper"><span class="category-icon">🔌</span></div>
+                            <div class="category-name">Networking</div>
                         </div>
                         <div class="category-card" data-category="Engineering">
-                            <div class="category-icon-wrapper"><span class="category-icon">🦾</span></div>
-                            <div class="category-name">Components</div>
+                            <div class="category-icon-wrapper"><span class="category-icon">⚙️</span></div>
+                            <div class="category-name">Engineering</div>
                         </div>
                         <div class="category-card" data-category="Software">
                             <div class="category-icon-wrapper"><span class="category-icon">💿</span></div>
@@ -146,14 +138,14 @@
         <section id="sell-view" class="view">
             <div class="container">
                 <div class="view-header">
-                    <h2>Sell Your Gear</h2>
-                    <p>Reach verified students instantly.</p>
+                    <h2>Sell Your Material</h2>
+                    <p>Post your IT gear for other students to see.</p>
                 </div>
                 <div class="glass-card form-container">
                     <form class="sell-form" id="listing-form">
                         <div class="form-group">
                             <label>Item Name</label>
-                            <input type="text" placeholder="e.g. Razer Blade 15" required>
+                            <input type="text" placeholder="e.g. MacBook Pro M1" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -172,26 +164,23 @@
                                     <option>New</option>
                                     <option>Mint</option>
                                     <option>Refurbished</option>
-                                    <option>Parts</option>
+                                    <option>Used</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Price ($)</label>
-                            <input type="number" placeholder="Enter amount" required>
+                            <label>Price (UGX)</label>
+                            <input type="number" placeholder="Enter amount in UGX" required>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea rows="4" placeholder="Specs, condition, why you're selling..."></textarea>
+                            <textarea rows="4" placeholder="Describe the item condition, specs, etc."></textarea>
                         </div>
                         <div class="form-group">
-                            <div class="upload-area">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <span>Drop product images here or click to browse</span>
-                                <input type="file" hidden>
-                            </div>
+                            <label>Product Image</label>
+                            <input type="file" class="file-input">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large">Launch Listing</button>
+                        <button type="submit" class="btn btn-primary btn-large">Post Listing</button>
                     </form>
                 </div>
             </div>
@@ -201,24 +190,24 @@
         <section id="how-it-works-view" class="view">
             <div class="container">
                 <div class="view-header">
-                    <h2>Safe Trading Protocol</h2>
-                    <p>How we ensure every trade is 100% secure.</p>
+                    <h2>Safety Protocol</h2>
+                    <p>Trading securely within the university ecosystem.</p>
                 </div>
-                <div class="protocol-grid">
-                    <div class="protocol-card">
-                        <div class="protocol-icon"><i class="fas fa-id-card-clip"></i></div>
-                        <h3>Verified Identity</h3>
-                        <p>Every user is verified via institutional email. No bots, no outsiders.</p>
+                <div class="protocol-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+                    <div class="protocol-card glass-card">
+                        <div class="protocol-icon" style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 1rem;"><i class="fas fa-envelope-circle-check"></i></div>
+                        <h3>University Email</h3>
+                        <p>All users must be verified with their student email to access the marketplace.</p>
                     </div>
-                    <div class="protocol-card">
-                        <div class="protocol-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="protocol-card glass-card">
+                        <div class="protocol-icon" style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 1rem;"><i class="fas fa-shield-halved"></i></div>
                         <h3>Safe Zones</h3>
-                        <p>We recommend trading at designated high-visibility campus locations.</p>
+                        <p>We recommend meeting at high-traffic campus areas like the Library or Student Hub.</p>
                     </div>
-                    <div class="protocol-card">
-                        <div class="protocol-icon"><i class="fas fa-handshake-simple"></i></div>
-                        <h3>Face-to-Face</h3>
-                        <p>Inspect gear before you pay. Complete trust, zero friction.</p>
+                    <div class="protocol-card glass-card">
+                        <div class="protocol-icon" style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 1rem;"><i class="fas fa-handshake"></i></div>
+                        <h3>In-Person Inspection</h3>
+                        <p>Never pay before inspecting the equipment in person. Verify quality first.</p>
                     </div>
                 </div>
             </div>
@@ -227,31 +216,11 @@
         <!-- Profile View -->
         <section id="profile-view" class="view">
             <div class="container">
-                <div class="profile-dashboard glass-card">
-                    <div class="profile-info">
-                        <div class="profile-avatar">JD</div>
-                        <div class="profile-details">
-                            <h2>John Doe</h2>
-                            <p class="profile-meta">Computer Science Senior | 5.0 ⭐</p>
-                            <span class="status-badge"><i class="fas fa-circle-check"></i> Verified Student</span>
-                        </div>
-                    </div>
-                    <div class="profile-stats">
-                        <div class="stat-item">
-                            <span class="stat-value">12</span>
-                            <span class="stat-label">Sales</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">4</span>
-                            <span class="stat-label">Active</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-section">
-                    <h3 class="section-title">Your Active Listings</h3>
-                    <div id="userListings" class="product-grid">
-                        <p class="empty-state">You don't have any active listings. <a href="#" class="nav-link link-accent" data-view="sell">Start selling now.</a></p>
+                <div class="profile-dashboard glass-card" style="margin-top: 5rem; display: flex; align-items: center; gap: 2rem;">
+                    <div class="profile-avatar" style="width: 80px; height: 80px; background: var(--primary-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800;">JD</div>
+                    <div class="profile-details">
+                        <h2>John Doe</h2>
+                        <p style="color: var(--text-muted);">Computer Science Student | Verified Seller</p>
                     </div>
                 </div>
             </div>
@@ -261,47 +230,36 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <span class="logo-text">CAMPUS<span>CURB</span></span>
-                    <p>The premier student IT marketplace.</p>
-                </div>
-                <div class="footer-nav">
-                    <a href="#">About</a>
-                    <a href="#">Policy</a>
-                    <a href="#">Report</a>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Campus Curb. Engineered for Excellence.</p>
+                <p>&copy; 2024 Campus Curb. Designed for University Ecosystem.</p>
             </div>
         </div>
     </footer>
 
     <!-- Cart Drawer -->
     <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer glass-panel" id="cartDrawer">
-        <div class="cart-header">
-            <h2>Your Cart (<span id="cartCount">0</span>)</h2>
-            <button id="cartClose" class="icon-btn"><i class="fas fa-times"></i></button>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header" style="padding: 1.5rem; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+            <h2>Cart (<span id="cartCount">0</span>)</h2>
+            <button id="cartClose" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
         </div>
-        <div id="cartItems" class="cart-content"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total Amount:</span>
-                <span id="cartTotal">$0.00</span>
+        <div id="cartItems" class="cart-content" style="flex: 1; overflow-y: auto; padding: 1.5rem;"></div>
+        <div class="cart-footer" style="padding: 1.5rem; border-top: 1px solid var(--border-light);">
+            <div class="cart-total" style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem; margin-bottom: 1.5rem;">
+                <span>Total:</span>
+                <span id="cartTotal">UGX 0</span>
             </div>
-            <button class="btn btn-primary btn-full">Proceed to Checkout</button>
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;">Check Out</button>
         </div>
     </div>
 
     <!-- Product Details Modal -->
     <div class="modal-overlay" id="productModalOverlay">
-        <div class="modal-content glass-panel">
-            <button class="modal-close icon-btn" id="productModalClose"><i class="fas fa-times"></i></button>
+        <div class="modal-content">
             <div id="productModalBody">
                 <!-- Content injected by app.js -->
             </div>
+            <button id="productModalClose" style="position: absolute; top: 1rem; right: 1rem; background: #fff; border: 1px solid var(--border-main); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">&times;</button>
         </div>
     </div>
 
