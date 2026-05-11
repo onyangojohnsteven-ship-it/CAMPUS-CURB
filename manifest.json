@@ -1,0 +1,21 @@
+{
+  "name": "Campus Curb Marketplace",
+  "short_name": "Campus Curb",
+  "description": "Campus-exclusive IT materials marketplace for students.",
+  "start_url": "/html/index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0047AB",
+  "icons": [
+    {
+      "src": "campus_curb_logo_1778481383344.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "campus_curb_logo_1778481383344.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
