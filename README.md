@@ -1,38 +1,47 @@
-# Campus Curb 🏠💻
+# Campus Curb 🎓
 
-**Campus Curb** is a comprehensive student housing and IT materials marketplace specifically designed for the university ecosystem. Built as a solo-founder project, it addresses the unique challenges students face in finding verified accommodation and accessing technical educational resources.
-
----
-
-## 🚀 Project Overview
-Campus Curb serves as a bridge between university students and essential campus services, focusing on two primary pillars:
-*   **Verified Student Housing:** A secure platform featuring verified listings and a streamlined booking process to ensure student safety.
-*   **IT Materials Marketplace:** A dedicated marketplace for students to buy, sell, or trade technical materials, hardware, and academic tools.
+**Campus Curb** is my solo project — a marketplace built specifically for university students to buy and sell IT equipment, hardware, and academic materials within the campus. No dealing with strangers outside, no sketchy online listings. Just students trading gear they actually know the value of.
 
 ---
 
-## 🛠️ Technical Stack
-The development of Campus Curb follows a rigorous **Systems Development Life Cycle (SDLC)** approach, utilizing modern web technologies and architectural standards:
+## Why I Built This
 
-*   **Frontend:** Developed with **Next.js**, **HTML5**, and **CSS3**, featuring a responsive "SaaS-style" UI with custom dark mode toggles and interactive grids.
-*   **Backend & Database:** Powered by **PostgreSQL** and **Supabase**, with a schema optimized for relational integrity and secure data handling.
-*   **Logic & Integration:** Core functionalities are implemented using **JavaScript** and **PHP** to manage real-time cart systems and dynamic product rendering.
-*   **Modeling:** System architecture is guided by formal **ERDs (Entity Relationship Diagrams)** and **DFDs (Data Flow Diagrams)** to ensure scalability.
+Finding affordable tech as a student is genuinely hard. I got tired of overpriced shops and unreliable Facebook listings. Campus Curb is the fix — a platform where you post what you have, browse what others are selling, and meet up safely on campus to complete the trade.
 
 ---
 
-## ✨ Key Features
-*   **Modern UI/UX:** A clean, accessible interface using a signature purple and pink gradient design system.
-*   **Real-time Cart Management:** Seamlessly add and manage items with instant UI updates and total calculations.
-*   **Verified Listings:** A structured verification process for student housing to prevent fraud.
-*   **Responsive Design:** Fully optimized for both desktop and mobile university users.
+## What It Does
+
+- **Browse Listings** — Search and filter IT gear by category (Laptops, Phones, Networking, Engineering components, etc.)
+- **Post Your Items** — List anything you're done using. Describe it, price it in UGX, and post it for the campus to see.
+- **Add to Cart** — Pick multiple items and see the total before you commit.
+- **Item Details Modal** — Click any listing for full details including seller, condition, and pickup location.
+- **Dark/Light Mode** — Toggle between themes depending on your preference.
+- **Mobile Friendly** — Works well on phone, which is how most students will use it.
 
 ---
 
-## 👨💻 About the Developer
-Campus Curb is developed by a software engineering student at **Cavendish University Uganda**. The project represents a synthesis of academic research in systems analysis, numerical methods (such as Newton's and the Bisection method), and practical full-stack engineering.
+## Tech Stack
+
+- **HTML5 + CSS3** — Plain markup and styling, no frameworks needed.
+- **Vanilla JavaScript** — All the interactivity (cart, modals, filters, theme toggle) is handled without any library.
+- **PWA Ready** — Has a service worker and manifest so it can be installed on your phone like an app.
+- **Hosted on GitHub Pages** — Free, fast, and always live.
 
 ---
 
-## 📝 License
-This project is currently under active development as a solo-founder venture.
+## Currency
+
+All prices are listed in **Ugandan Shillings (UGX)** because that's what makes sense for the students using this.
+
+---
+
+## About
+
+Built by a software engineering student at **Cavendish University Uganda** as part of a systems analysis and design project. The goal was to solve a real problem with real code — not just a theoretical exercise.
+
+---
+
+## Status
+
+Active development. More features coming.
