@@ -2,7 +2,7 @@
   "name": "Campus Curb Marketplace",
   "short_name": "Campus Curb",
   "description": "Campus-exclusive IT materials marketplace for students.",
-  "start_url": "/html/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#0047AB",

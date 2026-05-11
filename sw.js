@@ -1,7 +1,7 @@
 const CACHE_NAME = 'campus-curb-v1';
 const ASSETS = [
   '/',
-  '/html/index.html',
+  './index.html',
   '/css/styles.css',
   '/js/app.js',
   '/manifest.json',

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Campus Curb - The trusted campus-exclusive IT marketplace for students to buy and sell gear safely.">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <title>Campus Curb | Premium University IT Marketplace</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./campus_curb_logo_1778481383344.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-theme="dark">
+
+    <!-- Premium Background Effects -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <button class="menu-toggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars-staggered"></i>
+                </button>
+
+                <a href="#" class="logo nav-link" data-view="marketplace">
+                    <img src="./campus_curb_logo_1778481383344.png" alt="Campus Curb Logo" class="brand-logo">
+                    <span class="logo-text">CAMPUS<span>CURB</span></span>
+                </a>
+
+                <div class="nav-actions">
+                    <button class="nav-btn" id="themeToggle" aria-label="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="nav-btn" id="cartBtn" aria-label="View Cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="nav-btn nav-link" data-view="profile" aria-label="User Account">
+                        <i class="fas fa-user-astronaut"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <nav class="nav-overlay" id="mobileNav">
+        <button class="nav-close"><i class="fas fa-times"></i></button>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-view="marketplace">Explore Marketplace</a>
+            <a href="#" class="nav-link" data-view="sell">List Your Gear</a>
+            <a href="#" class="nav-link" data-view="how-it-works">Safe Zone Trading</a>
+            <a href="#" class="nav-link" data-view="profile">My Dashboard</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Marketplace View -->
+        <section id="marketplace-view" class="view active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-badge">🚀 The Future of Campus Trading</span>
+                        <h1>Level Up Your Tech <span>On Your Campus</span></h1>
+                        <p>The premium, student-only marketplace for high-performance gear. Verified trades, safe zones, no scams.</p>
+                        <div class="hero-cta">
+                            <button class="btn btn-primary nav-link" data-view="marketplace">Browse Gear</button>
+                            <button class="btn btn-glass nav-link" data-view="sell">Start Selling</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-filter-container">
+                <div class="container">
+                    <div class="search-wrapper">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search premium gear... (e.g., RTX 4070)">
+                        </div>
+                        <button class="filter-btn">
+                            <i class="fas fa-sliders-h"></i> <span>Filter</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <section class="categories">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Trending Categories</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <div class="category-grid">
+                        <div class="category-card active" data-category="all">
+                            <div class="category-icon-wrapper"><span class="category-icon">✨</span></div>
+                            <div class="category-name">Everything</div>
+                        </div>
+                        <div class="category-card" data-category="Laptops">
+                            <div class="category-icon-wrapper"><span class="category-icon">💻</span></div>
+                            <div class="category-name">Laptops</div>
+                        </div>
+                        <div class="category-card" data-category="Phones">
+                            <div class="category-icon-wrapper"><span class="category-icon">📱</span></div>
+                            <div class="category-name">Mobiles</div>
+                        </div>
+                        <div class="category-card" data-category="Networking">
+                            <div class="category-icon-wrapper"><span class="category-icon">🌐</span></div>
+                            <div class="category-name">Infrastructure</div>
+                        </div>
+                        <div class="category-card" data-category="Engineering">
+                            <div class="category-icon-wrapper"><span class="category-icon">🦾</span></div>
+                            <div class="category-name">Components</div>
+                        </div>
+                        <div class="category-card" data-category="Software">
+                            <div class="category-icon-wrapper"><span class="category-icon">💿</span></div>
+                            <div class="category-name">Software</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Grid -->
+            <section class="products" id="products">
+                <div class="container">
+                    <div class="product-grid" id="productGrid">
+                        <!-- Products injected by app.js -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Sell View -->
+        <section id="sell-view" class="view">
+            <div class="container">
+                <div class="view-header">
+                    <h2>Sell Your Gear</h2>
+                    <p>Reach verified students instantly.</p>
+                </div>
+                <div class="glass-card form-container">
+                    <form class="sell-form" id="listing-form">
+                        <div class="form-group">
+                            <label>Item Name</label>
+                            <input type="text" placeholder="e.g. Razer Blade 15" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select required>
+                                    <option>Laptops</option>
+                                    <option>Phones/Tablets</option>
+                                    <option>Networking/Cables</option>
+                                    <option>Engineering Components</option>
+                                    <option>Software/Lab Gear</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Condition</label>
+                                <select required>
+                                    <option>New</option>
+                                    <option>Mint</option>
+                                    <option>Refurbished</option>
+                                    <option>Parts</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Price ($)</label>
+                            <input type="number" placeholder="Enter amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="4" placeholder="Specs, condition, why you're selling..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Drop product images here or click to browse</span>
+                                <input type="file" hidden>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">Launch Listing</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works View -->
+        <section id="how-it-works-view" class="view">
+            <div class="container">
+                <div class="view-header">
+                    <h2>Safe Trading Protocol</h2>
+                    <p>How we ensure every trade is 100% secure.</p>
+                </div>
+                <div class="protocol-grid">
+                    <div class="protocol-card">
+                        <div class="protocol-icon"><i class="fas fa-id-card-clip"></i></div>
+                        <h3>Verified Identity</h3>
+                        <p>Every user is verified via institutional email. No bots, no outsiders.</p>
+                    </div>
+                    <div class="protocol-card">
+                        <div class="protocol-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3>Safe Zones</h3>
+                        <p>We recommend trading at designated high-visibility campus locations.</p>
+                    </div>
+                    <div class="protocol-card">
+                        <div class="protocol-icon"><i class="fas fa-handshake-simple"></i></div>
+                        <h3>Face-to-Face</h3>
+                        <p>Inspect gear before you pay. Complete trust, zero friction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile View -->
+        <section id="profile-view" class="view">
+            <div class="container">
+                <div class="profile-dashboard glass-card">
+                    <div class="profile-info">
+                        <div class="profile-avatar">JD</div>
+                        <div class="profile-details">
+                            <h2>John Doe</h2>
+                            <p class="profile-meta">Computer Science Senior | 5.0 ⭐</p>
+                            <span class="status-badge"><i class="fas fa-circle-check"></i> Verified Student</span>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Sales</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <h3 class="section-title">Your Active Listings</h3>
+                    <div id="userListings" class="product-grid">
+                        <p class="empty-state">You don't have any active listings. <a href="#" class="nav-link link-accent" data-view="sell">Start selling now.</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">CAMPUS<span>CURB</span></span>
+                    <p>The premier student IT marketplace.</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="#">About</a>
+                    <a href="#">Policy</a>
+                    <a href="#">Report</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Campus Curb. Engineered for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer glass-panel" id="cartDrawer">
+        <div class="cart-header">
+            <h2>Your Cart (<span id="cartCount">0</span>)</h2>
+            <button id="cartClose" class="icon-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cartItems" class="cart-content"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total Amount:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-full">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay" id="productModalOverlay">
+        <div class="modal-content glass-panel">
+            <button class="modal-close icon-btn" id="productModalClose"><i class="fas fa-times"></i></button>
+            <div id="productModalBody">
+                <!-- Content injected by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/app.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Service Worker Registration
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('./sw.js')
                 .then(reg => console.log('Service Worker registered'))
                 .catch(err => console.error('Service Worker registration failed', err));
         });
@@ -20,12 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 7, title: 'Logitech MX Master 3S', price: 80, category: 'Accessories', condition: 'Mint', seller: 'H.V.', building: 'Library', img: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80' },
         { id: 8, title: 'Samsung T7 Shield 1TB SSD', price: 95, category: 'Networking', condition: 'New', seller: 'F.B.', building: 'Dorm B', img: 'https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80' },
         { id: 9, title: 'Dell UltraSharp 27" 4K Monitor', price: 280, category: 'Engineering', condition: 'Mint', seller: 'L.M.', building: 'Arch Studio', img: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80' },
-        { id: 10, title: 'Mechanical Keyboard (Blue Switches)', price: 40, category: 'Accessories', condition: 'New', seller: 'Z.Q.', building: 'Union', img: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=600&q=80' },
-        { id: 11, title: 'Graphing Calculator TI-84 Plus', price: 70, category: 'Engineering', condition: 'Refurbished', seller: 'B.R.', building: 'Science Bldg', img: 'https://images.unsplash.com/photo-1543639828-09559f131551?auto=format&fit=crop&w=600&q=80' },
-        { id: 13, title: 'USB-C Hub (7-in-1)', price: 35, category: 'Accessories', condition: 'New', seller: 'N.X.', building: 'Union', img: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80' },
-        { id: 14, title: 'Webcam 1080p HD', price: 50, category: 'Accessories', condition: 'Mint', seller: 'P.O.', building: 'Tech Hub', img: 'https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=600&q=80' },
-        { id: 15, title: 'External Hard Drive 2TB', price: 60, category: 'Networking', condition: 'New', seller: 'W.S.', building: 'Dorm C', img: 'https://images.unsplash.com/photo-1531492746377-ad60cb3e2863?auto=format&fit=crop&w=600&q=80' },
-        { id: 16, title: 'Bose QuietComfort 35 II', price: 150, category: 'Accessories', condition: 'Refurbished', seller: 'Q.T.', building: 'Library', img: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80' }
+        { id: 10, title: 'Mechanical Keyboard (Blue Switches)', price: 40, category: 'Accessories', condition: 'New', seller: 'Z.Q.', building: 'Union', img: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=600&q=80' }
     ];
 
     // 3. Selectors
@@ -55,16 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Theme Logic
     function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     }
 
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(savedTheme);
 
     themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const currentTheme = document.body.getAttribute('data-theme');
         applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
     });
 
@@ -79,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    menuToggle.addEventListener('click', () => toggleMenu(true));
-    navClose.addEventListener('click', () => toggleMenu(false));
+    if (menuToggle) menuToggle.addEventListener('click', () => toggleMenu(true));
+    if (navClose) navClose.addEventListener('click', () => toggleMenu(false));
 
     // 5. Cart Logic
     function toggleCart(show) {
@@ -95,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    cartBtn.addEventListener('click', () => toggleCart(true));
-    cartClose.addEventListener('click', () => toggleCart(false));
-    cartOverlay.addEventListener('click', () => toggleCart(false));
+    if (cartBtn) cartBtn.addEventListener('click', () => toggleCart(true));
+    if (cartClose) cartClose.addEventListener('click', () => toggleCart(false));
+    if (cartOverlay) cartOverlay.addEventListener('click', () => toggleCart(false));
 
     function addToCart(id) {
         const product = products.find(p => p.id === id);
@@ -105,6 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push(product);
             updateCartUI();
             toggleCart(true);
+            
+            // Notification or visual feedback
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Added';
+            setTimeout(() => btn.innerHTML = originalText, 2000);
         }
     }
 
@@ -114,11 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCartUI() {
-        cartCount.textContent = cart.length;
-        cartBadge.textContent = cart.length;
+        if (cartCount) cartCount.textContent = cart.length;
+        if (cartBadge) cartBadge.textContent = cart.length;
         
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">Your cart is empty.</p>';
+            cartItemsContainer.innerHTML = '<div style="text-align: center; color: var(--text-dim); margin-top: 5rem;"><i class="fas fa-shopping-basket" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.2;"></i><p>Your cart is empty.</p></div>';
             cartTotal.textContent = '$0.00';
             return;
         }
@@ -127,14 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItemsContainer.innerHTML = cart.map((item, index) => {
             total += item.price;
             return `
-                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; background: #f8fafc; padding: 1rem; border-radius: 16px; border: 1px solid var(--border-color);">
-                    <img src="${item.img}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 12px;">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 20px; border: 1px solid var(--glass-border);">
+                    <img src="${item.img}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 14px;">
                     <div style="flex: 1;">
-                        <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem; font-weight: 700;">${item.title}</h4>
-                        <span style="color: var(--primary-orange); font-weight: 800;">$${item.price}</span>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem; font-weight: 700;">${item.title}</h4>
+                        <span style="color: var(--primary-magenta); font-weight: 800; font-size: 1.1rem;">$${item.price}</span>
                     </div>
-                    <button onclick="window.removeFromCart(${index})" style="background: none; border: none; color: #ef4444; cursor: pointer; padding: 0.5rem; font-size: 1.1rem;">
-                        <i class="fas fa-trash"></i>
+                    <button onclick="window.removeFromCart(${index})" class="icon-btn" style="color: #ef4444;">
+                        <i class="fas fa-trash-can"></i>
                     </button>
                 </div>
             `;
@@ -149,30 +150,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!p) return;
 
         productModalBody.innerHTML = `
-            <div class="modal-body-content">
+            <div class="modal-body-content" style="padding: 3rem;">
                 <div class="modal-image-container">
-                    <img src="${p.img}" alt="${p.title}">
+                    <img src="${p.img}" alt="${p.title}" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
                 </div>
                 <div class="modal-details">
-                    <span class="category-pill" style="display: inline-block; padding: 0.35rem 1rem; background: var(--bg-light); border-radius: 99px; font-size: 0.8rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem;">${p.category}</span>
-                    <h2>${p.title}</h2>
-                    <div class="modal-price">$${p.price}</div>
+                    <span class="hero-badge" style="margin-bottom: 1rem;">${p.category}</span>
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">${p.title}</h2>
+                    <div class="modal-price" style="font-size: 2rem; font-weight: 800; color: var(--primary-magenta); margin-bottom: 2rem;">$${p.price}</div>
                     
-                    <div class="modal-meta">
-                        <div class="meta-pill"><i class="fas fa-check-circle"></i> Condition: ${p.condition}</div>
-                        <div class="meta-pill"><i class="fas fa-user"></i> Seller: ${p.seller}</div>
-                        <div class="meta-pill"><i class="fas fa-map-marker-alt"></i> Location: ${p.building}</div>
+                    <div class="modal-meta" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                        <div class="meta-pill" style="background: var(--bg-card); border: 1px solid var(--glass-border); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-microchip" style="color: var(--primary-violet);"></i> Condition: ${p.condition}</div>
+                        <div class="meta-pill" style="background: var(--bg-card); border: 1px solid var(--glass-border); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user-circle" style="color: var(--primary-indigo);"></i> Seller: ${p.seller}</div>
+                        <div class="meta-pill" style="background: var(--bg-card); border: 1px solid var(--glass-border); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-location-dot" style="color: var(--primary-magenta);"></i> ${p.building}</div>
                     </div>
                     
-                    <div class="modal-description">
-                        <p>This ${p.title} is in ${p.condition.toLowerCase()} condition. Available for local pickup at ${p.building}. Contact the seller for more details or add to cart to proceed.</p>
+                    <div style="color: var(--text-dim); margin-bottom: 3rem; line-height: 1.8;">
+                        <p>Experience the peak of student-to-student commerce. This ${p.title} has been verified for quality and is ready for immediate handover at ${p.building}. Secure it now to level up your campus workflow.</p>
                     </div>
                     
-                    <div class="modal-actions" style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-                        <button class="btn btn-primary" onclick="window.addToCart(${p.id}); window.closeProductModal();" style="justify-content: center; width: 100%;">
-                            <i class="fas fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
+                    <button class="btn btn-primary btn-full" onclick="window.addToCart(${p.id}); window.closeProductModal();" style="justify-content: center;">
+                        <i class="fas fa-cart-plus"></i> Acquire Item
+                    </button>
                 </div>
             </div>
         `;
@@ -186,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
-    productModalClose.addEventListener('click', closeProductModal);
-    productModalOverlay.addEventListener('click', (e) => {
+    if (productModalClose) productModalClose.addEventListener('click', closeProductModal);
+    if (productModalOverlay) productModalOverlay.addEventListener('click', (e) => {
         if (e.target === productModalOverlay) closeProductModal();
     });
 
@@ -204,7 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetViewId = link.getAttribute('data-view');
             
             navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+            // Support multiple links to same view
+            document.querySelectorAll(`[data-view="${targetViewId}"]`).forEach(l => l.classList.add('active'));
 
             views.forEach(view => {
                 view.classList.remove('active');
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             toggleMenu(false);
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
@@ -226,10 +226,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchesCategory && matchesSearch;
         });
 
+        if (filtered.length === 0) {
+            productGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 5rem; color: var(--text-dim);"><h3>No premium gear found matching your search.</h3></div>';
+            return;
+        }
+
         productGrid.innerHTML = filtered.map(p => `
-            <div class="product-card">
+            <div class="product-card" style="opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out;">
                 <div class="product-image-wrapper">
-                    <img src="${p.img}" alt="${p.title}">
+                    <img src="${p.img}" alt="${p.title}" loading="lazy">
                     <span class="condition-badge">${p.condition}</span>
                 </div>
                 <div class="product-info">
@@ -237,15 +242,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="product-price">$${p.price}</div>
                     <div class="product-seller">
                         <div class="seller-avatar">${p.seller.charAt(0)}</div>
-                        <span>${p.seller} - ${p.building}</span>
+                        <span>${p.seller} &bull; ${p.building}</span>
                     </div>
                     <div class="product-actions">
-                        <button class="btn-detail" onclick="window.openProductModal(${p.id})">View Details</button>
-                        <button class="btn-contact" onclick="window.addToCart(${p.id})">Add to Cart</button>
+                        <button class="btn-detail" onclick="window.openProductModal(${p.id})">Details</button>
+                        <button class="btn-contact" onclick="window.addToCart(${p.id})"><i class="fas fa-plus"></i> Cart</button>
                     </div>
                 </div>
             </div>
         `).join('');
+
+        // Trigger animations
+        setTimeout(() => {
+            const cards = productGrid.querySelectorAll('.product-card');
+            cards.forEach((card, i) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, i * 100);
+            });
+        }, 50);
     }
 
     // 9. Filters & Search
@@ -259,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-            const activeCategory = document.querySelector('.category-card.active').dataset.category;
+            const activeCategory = document.querySelector('.category-card.active')?.dataset.category || 'all';
             renderProducts(activeCategory, e.target.value);
         });
     }
